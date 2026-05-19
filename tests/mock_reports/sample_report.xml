@@ -1,0 +1,32 @@
+<report>
+    <results>
+
+        <result>
+            <host>192.168.1.10</host>
+            <severity>9.8</severity>
+
+            <nvt>
+                <cve>CVE-2025-1234</cve>
+            </nvt>
+        </result>
+
+        <result>
+            <host>192.168.1.20</host>
+            <severity>7.5</severity>
+
+            <nvt>
+                <cve>CVE-2024-5555</cve>
+            </nvt>
+        </result>
+
+        <result>
+            <host>192.168.1.30</host>
+            <severity>3.2</severity>
+
+            <nvt>
+                <cve>NOCVE</cve>
+            </nvt>
+        </result>
+
+    </results>
+</report>

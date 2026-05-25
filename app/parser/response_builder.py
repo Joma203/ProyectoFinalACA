@@ -22,12 +22,27 @@ def vulnerabilities_to_json(vulnerabilities):
     return [
         {
             "severity": vuln.severity,
+
+            "cvss_score": vuln.cvss_score,
+
             "cve": vuln.cve,
-            "host": vuln.host
+
+            "host": vuln.host,
+
+            "port": vuln.port,
+
+            "name": vuln.name,
+
+            "family": vuln.family,
+
+            "description": vuln.description,
+
+            "impact": vuln.impact,
+
+            "solution": vuln.solution
         }
         for vuln in vulnerabilities
     ]
-
 
 def build_response(vulnerabilities):
 

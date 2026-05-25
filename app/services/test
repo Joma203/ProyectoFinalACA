@@ -82,13 +82,7 @@ def generate_pdf(report, output_path):
 
             ["CVSS Score", str(vuln["cvss_score"])],
 
-            [
-                "CVE",
-                Paragraph(
-                    vuln["cve"],
-                    styles["BodyText"]
-                )
-            ],
+            ["CVE", vuln["cve"]],
 
             ["Host", vuln["host"]],
 
@@ -96,32 +90,13 @@ def generate_pdf(report, output_path):
 
             ["Family", vuln["family"]],
 
-            [
-                "Description",
-                Paragraph(
-                    vuln["description"],
-                    styles["BodyText"]
-                )
-            ],
-            [
-                "Impact",
+            ["Description", vuln["description"]],
 
-                Paragraph(
-                    vuln["impact"],
-                    styles["BodyText"]
-                )
-            ],
-            [
-                "Solution",
+            ["Impact", vuln["impact"]],
 
-                Paragraph(
-                    vuln["solution"],
-                    styles["BodyText"]
-                )
-            ]          
+            ["Solution", vuln["solution"]]
+        ]
 
-        ] 
-        
         vuln_table = Table(
             vuln_data,
             colWidths=[150, 350]

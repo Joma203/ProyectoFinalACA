@@ -48,6 +48,9 @@ coverage.xml
 .hypothesis/
 cover/
 
+#pdf files reports
+.pdf
+
 # Logs
 *.log
 

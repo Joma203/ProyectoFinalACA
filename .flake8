@@ -1,0 +1,16 @@
+[flake8]
+max-line-length = 100
+exclude =
+    .git,
+    __pycache__,
+    venv,
+    .venv,
+    build,
+    dist,
+    .pytest_cache,
+    *.egg-info
+extend-ignore =
+    # E203: whitespace before ':' (incompatible con formato de slices)
+    E203,
+    # W503: line break before binary operator (estilo moderno lo prefiere)
+    W503

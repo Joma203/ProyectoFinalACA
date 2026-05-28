@@ -44,6 +44,7 @@ def vulnerabilities_to_json(vulnerabilities):
         for vuln in vulnerabilities
     ]
 
+
 def build_response(vulnerabilities):
 
     return {

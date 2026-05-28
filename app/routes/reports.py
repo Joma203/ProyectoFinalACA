@@ -1,13 +1,13 @@
 from fastapi import APIRouter  # type: ignore[reportMissingImports]
 from fastapi import UploadFile, File  # type: ignore[reportMissingImports]
-from fastapi import HTTPException # type: ignore[reportMissingImports]
+from fastapi import HTTPException  # type: ignore[reportMissingImports]
 from app.storage.memory_store import get_report
 from app.services.report_service import create_report
-from app.parser.parser_adapter import process_xml
 from fastapi.responses import FileResponse
 from app.services.pdf_generator import generate_pdf
 
 router = APIRouter()
+
 
 @router.post("/reports")
 async def upload_report(
@@ -35,7 +35,6 @@ def get_summary(report_id: str):
         )
 
     return report["summary"]
-
 
 
 @router.get("/reports/{report_id}")

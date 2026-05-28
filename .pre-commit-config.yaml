@@ -1,0 +1,36 @@
+# Pre-commit hooks configuration
+# https://pre-commit.com/
+#
+# Instalación local (una vez):
+#   pip install pre-commit
+#   pre-commit install
+#
+# Después, los hooks corren automáticamente en cada `git commit`.
+# Para correrlos manualmente sobre todos los archivos:
+#   pre-commit run --all-files
+
+repos:
+  # Hooks básicos de higiene de archivos
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace        # Elimina espacios al final de líneas
+      - id: end-of-file-fixer          # Asegura newline al final del archivo
+      - id: check-yaml                 # Valida sintaxis YAML
+      - id: check-added-large-files    # Bloquea archivos > 500KB
+        args: ['--maxkb=500']
+      - id: check-merge-conflict       # Detecta marcadores de merge sin resolver
+      - id: detect-private-key         # Detecta llaves privadas (ssh, pgp, etc.)
+
+  # Linter Python
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.1.1
+    hooks:
+      - id: flake8
+        args: ['--config=.flake8']
+
+  # Secrets scanning local (antes de cada commit)
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks

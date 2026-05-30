@@ -1,13 +1,34 @@
-version: "3.9"
-
 services:
 
   openvas-enhancer:
-
     build: .
+    container_name: openvas-enhancer
+    image: openvas-enhancer:latest
+    restart: unless-stopped
 
     ports:
-      - "8000:8000"
+      - "${PORT:-8000}:8000"
+
+    # Carga las variables del archivo .env
+    env_file:
+      - .env
+
+    # Variables que se pasan al contenedor (sobrescriben las del .env si hace falta)
+    environment:
+      - APP_NAME=${APP_NAME:-OpenVAS Analyzer API}
+      - APP_VERSION=${APP_VERSION:-1.0.0}
+      - HOST=${HOST:-0.0.0.0}
+      - PORT=8000
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - ENVIRONMENT=${ENVIRONMENT:-development}
+
+    # Health check de Docker: pega al endpoint /health cada 30 segundos
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
 
     volumes:
       - .:/app

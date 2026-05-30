@@ -139,3 +139,15 @@ class TestEndToEndFlow:
         pdf = client.get(f"/report/{report_id}/pdf")
         assert pdf.status_code == 200
         assert len(pdf.content) > 100  # No vacío
+
+
+class TestHealthCheck:
+    """GET /health — endpoint de salud para Docker."""
+
+    def test_health_returns_ok(self, client):
+        response = client.get("/health")
+        assert response.status_code == 200
+        body = response.json()
+        assert body["status"] == "ok"
+        assert "environment" in body
+        assert "version" in body

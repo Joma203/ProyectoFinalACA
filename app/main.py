@@ -1,4 +1,4 @@
-from fastapi import FastAPI # type: ignore[reportMissingImports]
+from fastapi import FastAPI  # type: ignore[reportMissingImports]
 from app.routes.reports import router as reports_router
 
 app = FastAPI(

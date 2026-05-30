@@ -1,0 +1,21 @@
+# Gitleaks configuration
+# https://github.com/gitleaks/gitleaks
+#
+# Esta configuración extiende los patrones por defecto de Gitleaks
+# (que ya detectan tokens de AWS, GitHub, Slack, etc.) y permite
+# excluir archivos legítimos donde aparezcan strings que parezcan secretos.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Archivos donde es legítimo tener strings que parezcan secretos"
+paths = [
+    # Tests pueden tener fixtures con credenciales falsas
+    '''tests/fixtures/.*''',
+    # Lock files de dependencias
+    '''.*\.lock''',
+    '''poetry\.lock''',
+    # Archivos de ejemplo (.env.example, etc.)
+    '''\.env\.example''',
+]

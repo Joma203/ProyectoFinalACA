@@ -2,6 +2,7 @@ import uuid
 
 REPORTS = {}
 
+
 def save_report(data):
 
     report_id = str(uuid.uuid4())
@@ -9,6 +10,7 @@ def save_report(data):
     REPORTS[report_id] = data
 
     return report_id
+
 
 def get_report(report_id):
 

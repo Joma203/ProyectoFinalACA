@@ -9,6 +9,7 @@ from reportlab.platypus import (
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
 
+
 def generate_pdf(report, output_path):
 
     doc = SimpleDocTemplate(output_path)
@@ -41,9 +42,9 @@ def generate_pdf(report, output_path):
         ["Medium", summary["medium"]],
 
         ["Low", summary["low"]]
-    ]   
+    ]
 
-    summary_table = Table(summary_data)    
+    summary_table = Table(summary_data)
 
     summary_table.setStyle(
 
@@ -63,7 +64,7 @@ def generate_pdf(report, output_path):
     elements.append(summary_table)
 
     elements.append(Spacer(1, 30))
-    
+
     elements.append(PageBreak())
 
     for vuln in vulnerabilities:
@@ -73,7 +74,7 @@ def generate_pdf(report, output_path):
                 styles["Heading1"]
             )
         )
-    
+
         vuln_data = [
 
             ["Field", "Value"],
@@ -118,14 +119,14 @@ def generate_pdf(report, output_path):
                     vuln["solution"],
                     styles["BodyText"]
                 )
-            ]          
+            ]
 
-        ] 
-        
+        ]
+
         vuln_table = Table(
             vuln_data,
             colWidths=[150, 350]
-        )      
+        )
 
         vuln_table.setStyle(
 
@@ -143,9 +144,9 @@ def generate_pdf(report, output_path):
 
                 ("BOTTOMPADDING", (0, 0), (-1, 0), 10),
             ])
-        )          
+        )
 
-        elements.append(vuln_table)        
+        elements.append(vuln_table)
         elements.append(PageBreak())
-        
+
     doc.build(elements)

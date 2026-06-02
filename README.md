@@ -17,12 +17,18 @@
 ```powershell
    docker-compose up -d --build
 ```
+<img width="958" height="596" alt="image" src="https://github.com/user-attachments/assets/cee5e190-76c5-4d17-b9b7-1256414a3463" />
+<img width="943" height="614" alt="image" src="https://github.com/user-attachments/assets/5c9beb9c-188d-44c7-89b6-a26aa83443ff" />
+
 
 3. **Valida el despliegue automáticamente:**
 ```powershell
    .\scripts\validate_deployment.ps1
 ```
    Este script levanta el contenedor, espera al health check, prueba los endpoints críticos y reporta resultado.
+
+   <img width="948" height="607" alt="image" src="https://github.com/user-attachments/assets/43f4a782-d2e8-41bd-9eed-89d4123c8e28" />
+
 
 4. **Accede a la API:**
    - API: http://localhost:8000
@@ -95,6 +101,8 @@ http://localhost:8000/redoc
 ```
 
 ---
+<img width="1366" height="675" alt="image" src="https://github.com/user-attachments/assets/56c3370d-99a3-4b19-a98c-019da382fb95" />
+
 
 # 4. Flujo General de Uso
 
@@ -114,6 +122,7 @@ http://localhost:8000/redoc
 ```http
 POST /reports
 ```
+<img width="1366" height="598" alt="image" src="https://github.com/user-attachments/assets/d485c78a-2877-4a25-ba7d-5734d14a781e" />
 
 ## Procedimiento
 
@@ -134,6 +143,7 @@ POST /reports
 El valor report_id identifica el reporte procesado y será necesario para las consultas posteriores.
 
 ---
+<img width="1366" height="596" alt="image" src="https://github.com/user-attachments/assets/80330adc-d241-4e4e-b47d-d01ee3e27360" />
 
 # 6. Consulta de Resumen
 
@@ -142,12 +152,14 @@ El valor report_id identifica el reporte procesado y será necesario para las co
 ```http
 GET /summary/{report_id}
 ```
+<img width="1366" height="597" alt="image" src="https://github.com/user-attachments/assets/cb0b5062-e3ea-4119-bc42-e21cc3202751" />
 
 ## Descripción
 
 Devuelve un resumen de las vulnerabilidades encontradas durante el análisis.
 
 ---
+<img width="1366" height="601" alt="image" src="https://github.com/user-attachments/assets/90750d53-144c-45fe-9a7c-bf1c069bfda9" />
 
 # 7. Consulta de Reporte Completo
 
@@ -156,6 +168,7 @@ Devuelve un resumen de las vulnerabilidades encontradas durante el análisis.
 ```http
 GET /reports/{report_id}
 ```
+<img width="1366" height="595" alt="image" src="https://github.com/user-attachments/assets/2504be84-6e65-41c2-b622-8c050c418b07" />
 
 ## Información mostrada
 
@@ -169,6 +182,7 @@ GET /reports/{report_id}
 * Soluciones recomendadas.
 
 ---
+<img width="1366" height="597" alt="image" src="https://github.com/user-attachments/assets/ed690a04-596b-423a-86e9-16cb20951144" />
 
 # 8. Generación de Reporte PDF
 
@@ -177,6 +191,7 @@ GET /reports/{report_id}
 ```http
 GET /report/{report_id}/pdf
 ```
+<img width="1366" height="597" alt="image" src="https://github.com/user-attachments/assets/2963428b-e74b-4476-afdf-61d97d14dab8" />
 
 ## Procedimiento
 
@@ -191,6 +206,10 @@ report.pdf
 ```
 
 ---
+<img width="1366" height="596" alt="image" src="https://github.com/user-attachments/assets/ce364376-48d7-48fb-b8e6-64bc37e57a02" />
+
+
+<img width="1366" height="676" alt="image" src="https://github.com/user-attachments/assets/1a822952-39ef-475e-918a-9b9f4250decb" />
 
 # 9. Verificación del Estado del Sistema
 
@@ -199,6 +218,7 @@ report.pdf
 ```http
 GET /health
 ```
+<img width="1363" height="598" alt="image" src="https://github.com/user-attachments/assets/b90867f0-8de9-412b-98c9-e323e6b5b38a" />
 
 ## Respuesta esperada
 
@@ -209,6 +229,7 @@ GET /health
   "version": "1.0.0"
 }
 ```
+<img width="1366" height="599" alt="image" src="https://github.com/user-attachments/assets/a53da3b0-d689-4675-b552-66d6bfbf467a" />
 
 ---
 
